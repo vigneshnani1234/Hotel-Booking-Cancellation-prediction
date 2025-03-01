@@ -12,7 +12,26 @@ with open("predictor.pkl", "rb") as model_file:
 
 # Function to preprocess data before feeding into model
 def preprocess_input(data):
-    country_mapping = {"USA": 1, "UK": 2, "France": 3, "Germany": 4, "India": 5}  # Example mapping
+    countries = ["USA", "UK", "France", "Germany", "India"];['Portugal', 'United Kingdom', 'United States', 'Spain', 'Ireland', 
+    'France', 'Unknown', 'Romania', 'Norway', 'Oman', 'Argentina', 'Poland', 'Germany', 'Belgium', 'Switzerland', 'CN', 'Greece', 'Italy', 
+    'Netherlands', 'Denmark', 'Russian Federation', 'Sweden', 'Australia', 'Estonia', 'Czechia', 'Brazil', 'Finland', 'Mozambique', 
+    'Botswana', 'Luxembourg', 'Slovenia', 'Albania', 'India', 'China', 'Mexico', 'Morocco', 'Ukraine', 'San Marino', 'Latvia', 
+    'Puerto Rico', 'Serbia', 'Chile', 'Austria', 'Belarus', 'Lithuania', 'Türkiye', 'South Africa', 'Angola', 'Israel', 'Cayman Islands',
+     'Zambia', 'Cabo Verde', 'Zimbabwe', 'Algeria', 'Korea, Republic of', 'Costa Rica', 'Hungary', 'United Arab Emirates', 'Tunisia', 
+     'Jamaica', 'Croatia', 'Hong Kong', 'Iran, Islamic Republic of', 'Georgia', 'Andorra', 'Gibraltar', 'Uruguay', 'Jersey',
+      'Central African Republic', 'Cyprus', 'Colombia', 'Guernsey', 'Kuwait', 'Nigeria', 'Maldives', 'Venezuela, Bolivarian Republic of', 
+      'Slovakia', 'Fiji', 'Kazakhstan', 'Pakistan', 'Indonesia', 'Lebanon', 'Philippines', 'Senegal', 'Seychelles', 'Azerbaijan', 'Bahrain',
+       'New Zealand', 'Thailand', 'Dominican Republic', 'North Macedonia', 'Malaysia', 'Armenia', 'Japan', 'Sri Lanka', 'Cuba', 'Cameroon',
+        'Bosnia and Herzegovina', 'Mauritius', 'Comoros', 'Suriname', 'Uganda', 'Bulgaria', "Côte d'Ivoire", 'Jordan', 'Syrian Arab Republic',
+         'Singapore', 'Burundi', 'Saudi Arabia', 'Viet Nam', 'Palau', 'Qatar', 'Egypt', 'Peru', 'Malta', 'Malawi', 'Ecuador', 'Madagascar',
+          'Iceland', 'Uzbekistan', 'Nepal', 'Bahamas', 'Macao', 'Togo', 'Taiwan, Province of China', 'Djibouti', 'Sao Tome and Principe', 
+          'Saint Kitts and Nevis', 'Ethiopia', 'Iraq', 'Honduras', 'Rwanda', 'Cambodia', 'Monaco', 'Bangladesh', 'Isle of Man', 'Tajikistan', 
+          'Nicaragua', 'Benin', 'Virgin Islands, British', 'Tanzania, United Republic of', 'Gabon', 'Ghana', 'TMP', 'Guadeloupe', 'Kenya', 
+          'Liechtenstein', 'Guinea-Bissau', 'Montenegro', 'United States Minor Outlying Islands', 'Mayotte', 'Faroe Islands', 'Myanmar', 
+          'Panama', 'Burkina Faso', 'Libya', 'Mali', 'Namibia', 'Bolivia, Plurinational State of', 'Paraguay', 'Barbados', 'Aruba', 'Anguilla',
+           'El Salvador', 'Dominica', 'French Polynesia', 'Guyana', 'Saint Lucia', 'Antarctica', 'Guatemala', 'American Samoa', 'Mauritania', 
+           'New Caledonia', 'Kiribati', 'Sudan', 'French Southern Territories', 'Sierra Leone', "Lao People's Democratic Republic"];
+    country_mapping = enumerate(countries)
     deposit_mapping = {"No Deposit": 0, "Non Refund": 1, "Refundable": 2}
 
     # Convert categorical to numerical
